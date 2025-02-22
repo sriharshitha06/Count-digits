@@ -1,21 +1,31 @@
 #include <iostream>
 using namespace std;
+
+// Count digits of n that evenly divide n
 int countDigits(int n) {
-    int a = n;
-    int count = 0;
+    int a = n; // Store original n
+    int count = 0; // Counter for divisible digits
+
+    // Process each digit
     while (n > 0) {
-        int digit = n % 10; 
-        if (digit != 0 && a % digit == 0) { 
-            count++;
+        int digit = n % 10; // Get last digit
+
+        // Check if digit divides original n
+        if (digit != 0 && a % digit == 0) {
+            count++; // Increment count
         }
-        n = n / 10;
+
+        n = n / 10; // Remove last digit
     }
-    return count;
+
+    return count; // Return count of divisible digits
 }
+
 int main() {
-    int n;
-    cin >> n; 
-    int result = countDigits(n);
-    cout <<result << endl;
-    return 0;
+    int n; // Input number
+    cin >> n; // Read input
+
+    int result = countDigits(n); // Count divisible digits
+    cout << result << endl; // Output result
+    return 0; 
 }
